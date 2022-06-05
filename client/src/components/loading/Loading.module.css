@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+
+
+.contenedor{
+    display: inline-block;
+    margin-left: 100px;
+}
+
+
+.spinner {
+    margin-left: 75px;
+    margin-top: 20px;
+    border: 8px solid rgba(0,0,0,.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+.text {
+    font-size: 40px;
+    font-family: 'Courgette', cursive;
+    color: blue;
+    animation: letra 1.5s ease infinite
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes letra {
+    0% {color: #9460D3; }
+    10% {color: #5891CB; }
+    20% {color: #5EE3EE; }
+    30% {color: #30CA6B; }
+    40% {color: #62DE3A; }
+    50% {color: #CBF432; }
+    60% {color: #E2E230;}
+    70% {color: #F8CE0F;}
+    80% {color: #DA8627; }
+    90% {color: #A23E1B; }
+    100% {color: #E39DC2; }
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.start {
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../img/landing.jpg");
+    background-color: #cccccc;
+   }
+
+.letra{
+    position: relative;
+    font-size: 60px;
+    font-family: 'Courgette', cursive;
+    -webkit-text-stroke: 2px black;
+    padding-top: 20px;
+    padding-left: 100px;
+    font-weight:800;
+    text-align: center;
+    animation: letra 1.5s ease infinite
+}
+
+@keyframes letra {
+    0% {color: #9460D3; -webkit-text-stroke: 2px black;}
+    10% {color: #5891CB; -webkit-text-stroke: 2px blue;}
+    20% {color: #5EE3EE; -webkit-text-stroke: 2px black;}
+    30% {color: #30CA6B; -webkit-text-stroke: 2px blue;}
+    40% {color: #62DE3A; -webkit-text-stroke: 2px black;}
+    50% {color: #CBF432; -webkit-text-stroke: 2px blue;}
+    60% {color: #E2E230; -webkit-text-stroke: 2px black;}
+    70% {color: #F8CE0F; -webkit-text-stroke: 2px blue;}
+    80% {color: #DA8627; -webkit-text-stroke: 2px black;}
+    90% {color: #A23E1B; -webkit-text-stroke: 2px blue;}
+    100% {color: #E39DC2; -webkit-text-stroke: 2px black;}
+}
+
+.letra:hover{
+    cursor: pointer;
+}
+
+.button {
+ background-color: transparent;
+}
+
+.button:hover {
+    background: linear-gradient(to bottom, #ffab23 5%, #ffe74c 100%);
+    background-color: #ffab23;
+}
