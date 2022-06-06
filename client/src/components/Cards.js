@@ -2,20 +2,25 @@ import React,{useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import { apiGetPokemons } from '../redux/actions';
 import Card from './Card';
-import Info from '../components/loading/Info';
 import Estilos from './Cards.module.css';
+import Info from './loading/Info';
 
 
 
 export default function Cards () {
-
+ 
   const dispatch = useDispatch();
   const datos = useSelector(state => state.allPokemons);
  
 
   console.log(datos);
   useEffect(()=> {
-    dispatch(apiGetPokemons());
+    if(datos.length === 0){
+      dispatch(apiGetPokemons());
+    } else {
+      console.log('Home')
+    }
+
 
   },[])
 
@@ -30,7 +35,7 @@ export default function Cards () {
 
 
        {(datos.length !== 0)? datos?.map(e => {
-         return ( <Card key={e.name} name={e.name} image={e.image} types={e.types}/>)
+         return ( <Card key={e.name} name={e.name} image={e.image} types={e.types} id={e.id}/>)
          
         }) : <Info/>}
       </div>

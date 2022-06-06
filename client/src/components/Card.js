@@ -1,10 +1,22 @@
 import React from "react";
 import Estilos from './Card.module.css';
-export default function Card ({name, image, types}){
+import {useNavigate} from 'react-router-dom';
+export default function Card ({name, image, types, id}){
+
+    // Derivacion a la ruta de detalle de un pokemon en particular 
+
+ 
+    const navigate = useNavigate();
+
+    const handleDetail = () => {
+        navigate(`/detail/${id}`);
+    }
+
+
 
     return (
 
-        <div className={Estilos.contenedor}>
+        <div className={Estilos.contenedor} onClick={()=> handleDetail()}>
             <div className={Estilos.imagen}>
             <img src={image} alt='imagen' className={Estilos.img} />
             </div>

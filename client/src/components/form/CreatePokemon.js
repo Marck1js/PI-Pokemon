@@ -12,9 +12,13 @@ export default function CreatePokemon () {
     const pokemonsTypes = useSelector((state) => state.types);
 
 useEffect(()=>{
-    dispatch(apiGetTypes());
-    console.log(datos);
-    console.log(pokemonsTypes);
+    if(pokemonsTypes.length === 0){
+        dispatch(apiGetTypes());
+    } else {
+        console.log('CREATE POKEMON')
+    }
+
+    
 },[])
 
 

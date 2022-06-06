@@ -1,4 +1,4 @@
-import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON  } from "../actiontypes"; 
+import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL  } from "../actiontypes"; 
 
 
 
@@ -62,6 +62,20 @@ function apiGetPokemons () {
     }
 
 
+    function orderByName (value) {
+        return {
+            type: ORDER_BY_NAME,
+            payload: value
+        }
+    }
+
+    function orderByStrength (value){
+        return {
+            type: ORDER_BY_STRENGTH,
+            payload: value
+        }
+    }
+
 
 
 function sumarDinero () {
@@ -75,9 +89,17 @@ function restarDinero () {
         type: RESTAR_DINERO
     }
 }
+function setDetail () {
+    return {
+        type: SET_DETAIL
+    }
+}
 
 
 export {
+    setDetail,
+    orderByStrength,
+    orderByName,
     getIdPokemon,
     apiGetTypes,
     apiGetPokemons,
