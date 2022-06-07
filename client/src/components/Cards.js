@@ -17,8 +17,6 @@ export default function Cards () {
   useEffect(()=> {
     if(datos.length === 0){
       dispatch(apiGetPokemons());
-    } else {
-      console.log('Home')
     }
 
 

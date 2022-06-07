@@ -1,32 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom' 
-import { getIdPokemon, apiGetTypes, orderByName, orderByStrength } from "../../redux/actions"; 
+import { getIdPokemon, apiGetTypes, orderByName, orderByStrength, setPokename, filterByType } from "../../redux/actions"; 
 import Estilos from './NavBar.module.css';
 
 export default function NavBar() {
     
     const dispatch = useDispatch();
-    
+
     const pokemonsTypes = useSelector((state) => state.types);
 
    useEffect(()=>{
        if(pokemonsTypes.length === 0){
            dispatch(apiGetTypes())
         }
-        else {
-            console.log('Que onda');
-        }
-
-
-   },[])
-
-    const [search, setSearch] = useState('');
-
-    const handleSearch = (e) => {
-        setSearch(e.target.value)
-    };
-
+   },[]);
 
     const handleName = (e) =>{
         e.preventDefault();
@@ -36,65 +24,65 @@ export default function NavBar() {
 
     const handleStrength = (e) => {
         e.preventDefault();
-        dispatch(orderByStrength(e.target.value))
+        dispatch(orderByStrength(e.target.value));
     }
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(getIdPokemon(search))
-        setSearch('');
-        console.log(`Has buscado ${search}`)
+    const handleTypes = (e) => {
+        e.preventDefault();
+        dispatch(filterByType(e.target.value));
+        
     }
-
-
 
 return (
     <>
     <div className={Estilos.contenedor}>
-        <div className={Estilos.busqueda}>
-        <form onSubmit={(e)=> handleSubmit(e)} className={Estilos.form}>
-            <input className={Estilos.input} value={search} placeholder='Busca un pokemon' onChange={(e)=> handleSearch(e)}/>
-            <button className={Estilos.btnSearch}>Buscar</button>
-        </form>
-        </div>
+      
 
         <div className={Estilos.div}>
             <Link to='/create'>
             <button className={Estilos.btnCreate}>Crea un Pokemon</button>
             </Link>
         </div>
-        <span className={Estilos.span}>Welcome to my PokeApi</span>
 
-        <select className={Estilos.filtro} name='select' onChange={(e)=> handleName(e)}>
+        <div className={Estilos.divFiltro}>     
+        <select className={Estilos.select} name='alfabeto' onChange={(e)=> handleName(e)}>
             <option value='all'>Defecto</option>
             <option value='asc'>A-Z</option>
             <option value='des'>Z-A</option>
         </select>
+        </div>
 
-        <select className={Estilos.fuerza} name='select' onChange={(e)=> handleStrength(e)}>
+        <div className={Estilos.divFuerza}>
+        <select className={Estilos.select} name='fuerza' onChange={(e)=> handleStrength(e)}>
             <option>Ordenar por Fuerza</option>
             <option value='menor'>Mayor</option>
             <option value='mayor'>Menor</option>
         </select>
+        </div>
 
-        <select className={Estilos.fuente} name='select'>
+        <div className={Estilos.divFuente}>  
+        <select className={Estilos.select} name='fuente'>
             <option>Elige fuente</option>
             <option>Todos</option>
             <option>Existentes</option>
             <option>Creados</option>
         </select>
+        </div>
 
-        <select className={Estilos.types}>
+        <div className={Estilos.divTypes}>
+        <select className={Estilos.select} name='tipos' onChange={(e) => handleTypes(e)}>
             <option>Tipos</option>
+            <option value='all'>Todos</option>
             {
-        pokemonsTypes.map((e)=> {
-                          return (
-                                <option key={e.name} value={e.name}>{e.name}</option>
-                                )
-                        })
-                    }
+                pokemonsTypes.map((e)=> {
+                    return (
+                        <option key={e.name} value={e.name}>{e.name}</option>
+                        )
+                    })
+                }
         </select>
+        </div>
+
 
     </div>
     </>

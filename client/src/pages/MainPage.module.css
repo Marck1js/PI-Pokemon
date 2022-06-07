@@ -1,19 +1,36 @@
 .contenedor {
-   
-        background-size: cover;
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        overflow: scroll;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-image: url("../img/peakpx.jpg");
-        background-color: #cccccc;
-       
+  background-color: #9F6CBF;
+  background: url('../img/peakpx.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  overflow: auto; 
+
 }
 
-.componentes {
-    outline: 6px solid red;
+
+.notfound {
+    
+        display: inline-block;
+        width: 300px;
+        height: 500px;
+        background-color: rgb(96, 237, 228);
+        border-radius: 10px;
+        margin: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        box-shadow: 10px 10px 10px rgb(57, 126, 122);
+        
+    
+}
+
+.cards {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  margin-top: 20px;
+  width: 80vw;
+  margin-left: 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }

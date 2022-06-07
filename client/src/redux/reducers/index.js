@@ -10,13 +10,14 @@ const initialState = {
 
 export function reducer (state=initialState, action) {
     switch(action.type){
-        case ACCIONES.SET_DETAIL: return {...state, detailPokemon: []}
+        case ACCIONES.SET_POKENAME : return {...state, pokename: []};
+        case ACCIONES.SET_DETAIL: return {...state, detailPokemon: []};
         case ACCIONES.API_GET_POKEMONS : return {...state, allPokemons: action.payload, default: action.payload};
         case ACCIONES.API_DETAIL_POKEMON: return {...state, detailPokemon: action.payload};
         case ACCIONES.API_GET_TYPES: return {...state, types: action.payload};
-        case ACCIONES.GET_ID_POKEMON: return {...state, pokename: action.payload};
+     
         case ACCIONES.ORDER_BY_NAME: 
-            let order = [...state.allPokemons];
+            let order = [...state.default];
             if(action.payload === 'asc'){
                 order.sort((a,b)=>{
                     if(a.name > b.name) return 1
@@ -36,7 +37,7 @@ export function reducer (state=initialState, action) {
             }
             return {...state, allPokemons: order};
         case ACCIONES.ORDER_BY_STRENGTH: 
-                let fuerza = [...state.allPokemons];
+                let fuerza = [...state.default];
                 if(action.payload === 'mayor'){
                     fuerza.sort((a,b)=>{
                         if(a.strength > b.strength) return 1
@@ -52,6 +53,29 @@ export function reducer (state=initialState, action) {
                     }).reverse();
                 }
                 return {...state, allPokemons: fuerza};
+
+        case ACCIONES.GET_ID_POKEMON: 
+                   if(action.payload.msg){
+                       return {...state, pokename: action.payload}
+                   } else {
+                     
+                        
+                      return {...state, allPokemons: action.payload}
+                   } ;
+        case ACCIONES.FILTER_BY_TYPE: 
+        let dato = [...state.default];
+        if(action.payload === 'all'){
+            return {...state, allPokemons: dato};
+        }else {
+            let flt = dato.filter(e => e.types.find(e=> e.name === action.payload));
+             if(flt.length === 0){
+                 flt = 'x';
+             }
+            return {...state, allPokemons: flt}
+        }
+
+   
+                
 
         default : return state
     

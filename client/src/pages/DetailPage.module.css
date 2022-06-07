@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
+.contenedor {
+    background: url('../img//detail.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: auto;      
+    
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 50vw;
+}
+
+.boton {
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Permanent Marker', cursive;
+    color: rgba(155, 167, 49, 0.788);
+    font-size: 40px;
+}
+
+.boton:hover {
+    cursor: pointer;
+    -webkit-text-stroke: 1px black;
+}

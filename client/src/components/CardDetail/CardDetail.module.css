@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.contenedor {
+   display: inline-block;
+   position: relative;
+   background-color: transparent;
+   border: 5px solid rgba(255,255,255,.2);
+   backdrop-filter: blur(10px);
+   border-radius: 30px;
+   width: 80vw;
+   margin-top: 40px;
+   margin-left: 10vw;
+   text-align: center;
+   align-items: center;
+   text-transform: uppercase;
+}
+
+.divImagen{
+    display: inline-block;
+    position: absolute;    
+    top: 7rem;
+    left: 80px;
+    align-items: center;
+    
+}
+
+.image{
+    width: 395px;
+    height: 395px;
+    animation: img 1s linear infinite;
+}
+
+
+
+
+.name {
+    font-size: 50px;
+    color: rgba(170, 190, 121, 0.904);
+    animation: name 1s ease infinite;
+}
+.id{
+    top: 0;
+    left: 1rem;
+    position: absolute;
+    color: rgb(255, 255, 255);
+}
+
+@keyframes name {
+    0%{
+        -webkit-text-stroke: 2px rgb(70, 66, 56);
+    }
+
+    50%{
+        -webkit-text-stroke: 2px rgba(17, 166, 224, 0.726);
+    }
+
+    100%{
+        -webkit-text-stroke: 2px rgba(230, 192, 24, 0.87);
+    }
+}
+
+.stats{
+    font-family: 'Permanent Marker', cursive;
+    display: inline-block;
+    width: 400px;
+    border-radius: 20px;
+    position: relative;
+   
+    margin-left: 50vw;
+    color:rgba(212, 223, 67, 0.795);
+    margin-bottom: 10px;
+    animation: chs 5s linear infinite;
+}
+
+.type {
+    font-family: 'cursive';
+    color: rgb(50, 168, 207);
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+ }
+
+.divType {
+    
+    display: inline-block;
+    position: absolute;
+    margin-top: 200px;
+    left: 33vw;
+   
+}
+
+@keyframes chs {
+    0%{
+        color:rgba(212, 223, 67, 0.795);
+    }
+    50%{
+        color:rgba(59, 201, 31, 0.795);
+    }
+    100%{
+        color:rgba(0, 59, 253, 0.795);
+    }
+  
+    
+}
+
+@keyframes img {
+    0% {
+            width: 395px;
+            height: 395px;
+        
+    }
+    25%{
+        width: 397px;
+        height: 397px;
+    }
+
+    50%{
+        width: 400px;
+        height: 400px;
+    }
+    50%{
+        width: 397px;
+        height: 397px;
+    }
+    100%{
+        width: 395px;
+        height: 395px;
+    }
+}

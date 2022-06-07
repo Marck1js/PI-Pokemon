@@ -2,8 +2,9 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import { Link, useParams } from "react-router-dom";
 import {apiDetailPokemon, setDetail} from '../redux/actions';
-import Loading from "../components/loading/Loading";
+import Loading from "../components/loading/Info";
 import CardDetail from "../components/CardDetail/CardDetail";
+import Estilos from './DetailPage.module.css';
 
 export default function DetailPage () {
 
@@ -20,16 +21,22 @@ export default function DetailPage () {
   
 
     return (
-
-        <div>
-            Welcome to detail page
-           <Link to='/home'><button>Back</button></Link>
-
+         <>
         {
-           detalle.length !== 0 ? <CardDetail name={detalle.name} image={detalle.image} type={detalle.type} id={detalle.id} life={detalle.life} strength={detalle.strength} defense={detalle.defense} speed={detalle.speed} height={detalle.height} weight={detalle.weight}/> : <Loading/>
-        }
-             
+            detalle.length === 0 ? <Loading/> 
+            : 
+        <div className={Estilos.contenedor}>
+         
+         <div className={Estilos.cont}>
+             <CardDetail name={detalle.name} image={detalle.image} type={detalle.type} id={detalle.id} life={detalle.life} strength={detalle.strength} defense={detalle.defense} speed={detalle.speed} height={detalle.height} weight={detalle.weight}/>
+             <div className={Estilos.btn}><Link to='/home'><button className={Estilos.boton}>BACK</button></Link></div>
+         </div>
+
+
         </div>
+         
+}
+        </>
     )
 
 }

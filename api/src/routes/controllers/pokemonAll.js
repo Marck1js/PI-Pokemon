@@ -4,7 +4,7 @@ const {Pokemon} = require('../../db')
 
 
 async function pokemonAll(req,res){
-    let api = 'https://pokeapi.co/api/v2/pokemon?limit=5'
+    let api = 'https://pokeapi.co/api/v2/pokemon?limit=48'
     let {name} = req.query;
     if(name){
         name = name.toLowerCase();
@@ -21,7 +21,7 @@ async function pokemonAll(req,res){
         let x = [];
         console.log(x.length);
         for(let i = 0; i < data.length; i++){
-           let inf = await fetch(data[i]).then(res=> res.json().then((e)=> ({id: e.id,strength:e.stats[1].base_stat, name: e.name,image: e.sprites.other.dream_world.front_default, types : e.types.map(e => e.type.name)})));
+           let inf = await fetch(data[i]).then(res=> res.json().then((e)=> ({id: e.id,strength:e.stats[1].base_stat, name: e.name,image: e.sprites.other.dream_world.front_default, types : e.types.map(e => ({name :e.type.name}))})));
             x.push(inf);
         }
        

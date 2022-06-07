@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Courgette&display=swap');
 
 .contenedor {   
-    background-color: rgba(46,196,220, 0.5);    
     display: inline-block;
+    background-color: rgba(46,196,220, 0.9);    
     position: relative;
     width: 80vw;
-    margin-top: 10px;
+    margin-top: 2rem;
     margin-left: 10vw;
     height: 40px;
     border-radius: 10px;
@@ -15,13 +15,13 @@
 
 
 .div {
-    position: absolute;
-    right: 10px;
+
+   position:absolute;
+    right: 3rem;
     top: 8px;
-  
 }
 .btnCreate {
-    color: #8EA285;
+    color: blue;
     font-family: 'Coming Soon', cursive;
     border-radius: 10px;
     border-color: transparent;
@@ -31,57 +31,47 @@
     color: black;
     border-color: transparent;
     cursor: pointer;
-    background-color: yellowgreen;
+    background-color: rgb(97, 110, 71);
 }
 
-.input {
-    border-color: transparent;
-    height: 20px;
+.divFiltro {
     position: absolute;
-    left: 20px;
-    top: 7px;
+    left: 5rem;
+    top: 3px;
 }
 
-.btnSearch {
-    position: absolute;
-    top: 8px;
-    left: 240px;
-    color: black;
+
+
+.divFuerza {
+    position:absolute;
+    left: 15rem;
+    top: 3px;
+}
+
+
+.divFuente {
+    position:absolute;
+    left: 30rem;
+    top: 3px;
+}
+
+
+
+.divTypes{
+    position:absolute;
+    left: 43rem;
+    top: 3px;
+}
+
+.select{
+    border: none !important;
+    background-color: transparent;
+    font-size:larger;
     font-family: 'Coming Soon', cursive;
-    border-radius: 10px;
-    border-color: transparent;
-    background-color: yellowgreen;
+    scrollbar-color: rgba(0,0,0,.5);
+    scrollbar-width: thin;
+    
 }
-
-.span {
-    position: absolute;
-    font-family: 'Coming Soon', cursive;
-    font-size: 20px;
-    font-weight: 900;
-    top: 5px;
-    left: 40%;
-}
-
-.filtro {
-    position: absolute;
-    top: 10px;
-    right: 200px;
-}
-
-.fuerza {
-    position: absolute;
-    top: 10px;
-    right: 250px;
-}
-
-.fuente {
-    position: absolute;
-    top: 10px;
-    right: 400px;
-}
-
-.types {
-    position: absolute;
-    top: 10px;
-    right: 500px;
+.select option {
+    border: none !important;
 }
