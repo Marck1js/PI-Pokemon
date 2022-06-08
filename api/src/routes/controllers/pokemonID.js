@@ -1,9 +1,13 @@
 const fetch = require('node-fetch');
-const {Pokemon} = require('../../db')
+const {Pokemon, Type} = require('../../db')
 
 async function pokemonID (req,res){
     let {id} = req.params;
     
+    if(id){
+         console.log(id);
+    }
+
     let api = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
     let onlynumbers = /^[0-9]+$/
@@ -33,37 +37,38 @@ async function pokemonID (req,res){
 
 //BUSQUEDA EN LA BASE DE DATOS 
 
+
+
     const oneDatabase = async () => {
-         const data = await Pokemon.findAll({where:{id}, attributes : ['name', 'id', 'life' , 'strength', 'defense', 'speed', 'height', 'weight']})
-    let information = data[0]
-    console.log(data);
-    console.log(!!data.length);
+      
+        const datos = await Pokemon.findAll({where: {id:id}, attributes: ['name','id','life','strength','defense','speed','height','weight', 'image','isDatabase'], include:{model: Type, attributes: ['name'], through: {attributes: []}}});
 
-    if(!data.length){
-        return {msg: 'No existe tal pokemon con ese ID'}
-    }else {
-        return information;
-    }
+       const valoresDb = datos.map(e => ({name: e.name, id: e.id, life: e.life, strength: e.strength, defense: e.defense, speed: e.speed, height: e.height, weight: e.weight, image: e.image,isDatabase: e.isDatabase}));
+
+       const type =  datos[0].dataValues.types.map(e => e.dataValues.name);
+       valoresDb[0].type = type;  
+       
+       if(valoresDb[0].type.length === 0){
+           delete valoresDb[0].type
+       }
+
+         return valoresDb[0];
 }
 
 
-try {
-    if(regexUuid.test(id) && id.length === 36){
-        res.send(await oneDatabase());
-    }else if(onlynumbers.test(id)){
-        res.send(await onePokemon());
-    }else {
-        res.send('Lo siento, escriba solo numeros o UUID')
-    }
+ try {
+     if(regexUuid.test(id) && id.length === 36){
+         res.send(await oneDatabase());
+     }else if(onlynumbers.test(id)){
+         res.send(await onePokemon());
+     }else {
+         res.send('Lo siento, escriba solo numeros o UUID')
+     }
 
-} catch (error) {
-    res.send({msg: 'No existe tal pokemon con ese ID'})
+ } catch (error) {
+     res.send({msg: 'No existe tal pokemon con ese ID'})
 }
-
   
-
-  
-
 
 }
 

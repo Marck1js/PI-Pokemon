@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import Cards from "../components/Cards";
 import NavBar from "../components/navBar/NavBar";
 import Estilos from './MainPage.module.css';
 import Info from '../components/loading/Info';

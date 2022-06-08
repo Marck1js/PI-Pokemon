@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom' 
-import { getIdPokemon, apiGetTypes, orderByName, orderByStrength, setPokename, filterByType } from "../../redux/actions"; 
+import { getIdPokemon, apiGetTypes, orderByName, orderByStrength, setPokename, filterByType, filterByOrigin } from "../../redux/actions"; 
 import Estilos from './NavBar.module.css';
 
 export default function NavBar() {
@@ -33,13 +33,19 @@ export default function NavBar() {
         
     }
 
+    const handleSource = (e) => {
+        e.preventDefault();
+        dispatch(filterByOrigin(e.target.value));
+    }
+
+
 return (
     <>
     <div className={Estilos.contenedor}>
       
 
         <div className={Estilos.div}>
-            <Link to='/create'>
+            <Link to='/home/create'>
             <button className={Estilos.btnCreate}>Crea un Pokemon</button>
             </Link>
         </div>
@@ -61,11 +67,11 @@ return (
         </div>
 
         <div className={Estilos.divFuente}>  
-        <select className={Estilos.select} name='fuente'>
+        <select className={Estilos.select} name='fuente' onChange={(e)=> handleSource(e)}>
             <option>Elige fuente</option>
-            <option>Todos</option>
-            <option>Existentes</option>
-            <option>Creados</option>
+            <option value='all'>Todos</option>
+            <option value='api'>Existentes</option>
+            <option value='db'>Creados</option>
         </select>
         </div>
 

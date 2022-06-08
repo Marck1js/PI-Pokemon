@@ -72,7 +72,20 @@ export function reducer (state=initialState, action) {
                  flt = 'x';
              }
             return {...state, allPokemons: flt}
+        };
+        case ACCIONES.FILTER_BY_ORIGIN: 
+        let origen = [...state.default];
+        if(action.payload === 'db'){
+            let nuevodb = origen.filter(e => e.isDatabase === true)
+            return {...state, allPokemons: nuevodb}
         }
+        if(action.payload === 'api'){
+            let nuevoapi = origen.filter(e => e.isDatabase !== true)
+            return {...state, allPokemons: nuevoapi}
+        }
+        if(action.payload === 'all'){
+            return {...state, allPokemons: origen}
+        };
 
    
                 

@@ -1,10 +1,10 @@
 const fetch = require('node-fetch');
 const axios = require('axios')
-const {Pokemon} = require('../../db')
+const {Pokemon, Type} = require('../../db')
 
 
 async function pokemonAll(req,res){
-    let api = 'https://pokeapi.co/api/v2/pokemon?limit=48'
+    let api = 'https://pokeapi.co/api/v2/pokemon?limit=5'
     let {name} = req.query;
     if(name){
         name = name.toLowerCase();
@@ -19,15 +19,25 @@ async function pokemonAll(req,res){
 
 // IMAGEN, NOMBRE, TIPOS     
         let x = [];
-        console.log(x.length);
+      
         for(let i = 0; i < data.length; i++){
            let inf = await fetch(data[i]).then(res=> res.json().then((e)=> ({id: e.id,strength:e.stats[1].base_stat, name: e.name,image: e.sprites.other.dream_world.front_default, types : e.types.map(e => ({name :e.type.name}))})));
             x.push(inf);
         }
        
-        console.log(x.length)
+      
 
-        res.send(x);
+        const busqueda = await Pokemon.findAll({include: Type});
+        
+        if(busqueda.length === 0) {
+            return res.send(x);
+        }else {  
+            let valores = busqueda.map(e=> ({id: e.dataValues.id, strength: e.dataValues.strength, name: e.dataValues.name, image: e.dataValues.image, isDatabase: e.dataValues.isDatabase ,types: e.dataValues.types.map(e=> ({name: e.name}))}))
+
+            return res.send(x.concat(valores))
+  
+        }
+            
     }
 
     const query = async () => {
@@ -43,9 +53,9 @@ async function pokemonAll(req,res){
         }))
     console.log(nota);
         if(nota.length !== 1){
-            
-            const infdb = await Pokemon.findAll({where: {name: name},  attributes : ['name', 'id', 'life' , 'strength', 'defense', 'speed', 'height', 'weight']})
-            console.log(infdb.length);
+
+            const infdb = await Pokemon.findAll({where: {name: name},  attributes : ['name', 'id', 'life' , 'strength', 'defense', 'speed', 'height', 'weight', 'isDatabase'], include: {model: Type, attributes: ['name'], through: {attributes: []}}})
+            console.log(infdb);
             if(infdb.length === 0){
                 return res.send({msg: 'Lo siento no hay ningun pokemon en la base de datos ni en la api'})
             }else{
@@ -82,9 +92,10 @@ async function pokemonAll(req,res){
 
     try {
         if(name){
-            console.log('hay query')
+            console.log('busqueda en nombre')
             await  query();
         }else{
+            console.log('no hay query')
             await infoApi();
         }
     } catch (error) {

@@ -32,10 +32,21 @@ module.exports = (sequelize) => {
     },
     weight: {
       type: DataTypes.INTEGER
+    },
+    image:{
+      type: DataTypes.STRING,
+      defaultValue: 'https://img.freepik.com/vector-gratis/error-404-ilustracion-concepto-paisaje_114360-7888.jpg?size=338&ext=jpg'
+    },
+    isDatabase: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
+    
   }, {
-    timestamps: true,
-    createdAt : false,
-    updatedAt : 'Actualizado'
+    timestamps: false
+  
   });
 };
+
+

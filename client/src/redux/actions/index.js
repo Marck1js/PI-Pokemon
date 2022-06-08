@@ -1,4 +1,4 @@
-import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE  } from "../actiontypes"; 
+import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE, FILTER_BY_ORIGIN } from "../actiontypes"; 
 
 
 
@@ -108,7 +108,16 @@ function filterByType (value) {
     }
 }
 
+function filterByOrigin (value) {
+    return {
+        type: FILTER_BY_ORIGIN,
+        payload: value
+    }
+}
+
+
 export {
+    filterByOrigin,
     filterByType,
     setPokename,
     setDetail,
