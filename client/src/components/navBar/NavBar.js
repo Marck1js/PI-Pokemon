@@ -35,8 +35,13 @@ export default function NavBar() {
 
     const handleSource = (e) => {
         e.preventDefault();
-        dispatch(filterByOrigin(e.target.value));
+        if(e.target.value === 'choose'){ 
+            console.log('a')
+        } else {
+            dispatch(filterByOrigin(e.target.value));
+        }
     }
+
 
 
 return (
@@ -68,7 +73,7 @@ return (
 
         <div className={Estilos.divFuente}>  
         <select className={Estilos.select} name='fuente' onChange={(e)=> handleSource(e)}>
-            <option>Elige fuente</option>
+            <option value='choose'>Elige fuente</option>
             <option value='all'>Todos</option>
             <option value='api'>Existentes</option>
             <option value='db'>Creados</option>

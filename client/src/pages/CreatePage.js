@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Estilos from './CreatePage.module.css';
 import {useNavigate} from 'react-router-dom'
-import {apiGetTypes} from '../redux/actions/index';
+import {apiGetTypes, postPokemon} from '../redux/actions/index';
 import {useDispatch, useSelector} from 'react-redux';
 function CreatePage () {
 
@@ -10,6 +10,20 @@ function CreatePage () {
     const dispatch = useDispatch();
 
     const types = useSelector((state)=> state.types);
+
+
+    const [validations, setValidations] = useState({
+        name:'',
+        life: '',
+        strength:'',
+        defense: '',
+        speed: '',
+        height: '',
+        weight: '',
+        image: '',
+        types: ''
+    });
+
 
     const [addDelete, setAddDelete] = useState('');
     
@@ -73,7 +87,10 @@ useEffect(()=>{
     }
     const handleAddTypes = (e) => {
         e.preventDefault();
-        if(state.types.includes(addDelete)){
+        if(state.types.length === 3){
+            alert('Ya no puede agregar mas tipos');
+            setAddDelete('');
+        }else if(state.types.includes(addDelete)){
             alert('Ese tipo ya ha sido agregado anteriormente');
             setAddDelete('');
         } else if(addDelete !== ''){
@@ -103,6 +120,29 @@ useEffect(()=>{
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(postPokemon(state));
+        setState({
+            name:'',
+            life: '',
+            strength:'',
+            defense: '',
+            speed: '',
+            height: '',
+            weight: '',
+            image: '',
+            types: []
+    
+        })
+        setAddDelete('');
+        let ask = window.confirm("Pokemon creado, ¿Desea Crear Otro Pokemon?");
+       if(ask === false){
+           navigate('/home')
+       }else {
+           console.log('creating ...')
+       }
+    }
 
 
     //MANEJADORES--!
@@ -115,7 +155,7 @@ useEffect(()=>{
 
             <div className={Estilos.formulario}>
 
-                <form>
+                <form onSubmit={(e)=> handleSubmit(e)}>
                     <label htmlFor="nombre">Nombre:</label>
                     <input id="nombre" type='text' placeholder="Escribe Nombre" value={state.name} onChange={(e)=> handleName(e)}/>
                     <br/>
@@ -137,27 +177,50 @@ useEffect(()=>{
                     <label htmlFor="peso">Peso:</label>
                     <input id="peso" type='text' placeholder="Escribe Peso"  value={state.weight} onChange={(e)=> handleWeight(e)}/>
                     <br/>
-                    <label htmlFor="imagen">Peso:</label>
+                    <label htmlFor="imagen">Imagen:</label>
                     <input id="imagen" type='text' placeholder="Escribe link de Imagen"  value={state.image} onChange={(e)=> handleImage(e)}/>
-                 
-                    <select onChange={(e)=> handleChangeType(e)}>
+                    <br/>
+                    <select className={Estilos.select} onChange={(e)=> handleChangeType(e)}>
                         <option value='Tipos'>Tipos</option>
                         {
                             types.map((e)=> <option key={e.name} value={e.name}>{e.name}</option>)
                         }
                     </select>
-                    <button onClick={(e) => handleAddTypes(e) }>Añadir</button>
-                    <button onClick={(e) => handleDeleteTypes(e)}>Eliminar</button>
-                    {  <span>{state.types.map(e => `${e} `)}</span>}
                     <br/>
-                    <button>CREAR POKEMON !</button>
+                    <button className={Estilos.button} onClick={(e) => handleAddTypes(e) }>Añadir</button>
+                    <button className={Estilos.button} onClick={(e) => handleDeleteTypes(e)}>Eliminar</button>
+                  
+                    <br/>
+                    <button className={Estilos.button} >CREAR POKEMON !</button>
                     
                 </form>
+                </div>
 
-            <button onClick={back}>BACK</button>
+                <div className={Estilos.goHome}>
+                <button className={Estilos.btn} onClick={back}>BACK</button>
+                </div>
 
+                <br/>
+
+
+
+            <div className={Estilos.showTypes}>
+                <h2 className={Estilos.add}>Tipos añadidos</h2>
+                
+                {
+                    state.types.length === 0 ? null : state.types.map((e)=> {
+                        return (
+                            <div className={Estilos.types} key={e}>{e}</div>
+                        )
+                    })
+
+                }
 
             </div>
+
+
+
+          
         
 
 
@@ -172,5 +235,4 @@ useEffect(()=>{
 }
 
 export default CreatePage;
-
 

@@ -9,7 +9,7 @@
     margin-left: 10vw;
     height: 40px;
     border-radius: 10px;
-
+    margin-bottom: 20px;
 
 }
 
@@ -17,10 +17,11 @@
 .div {
 
    position:absolute;
-    right: 3rem;
-    top: 8px;
+    right: 44%;
+    top: 2px;
 }
 .btnCreate {
+    font-size: 20px;
     color: blue;
     font-family: 'Coming Soon', cursive;
     border-radius: 10px;
@@ -31,12 +32,12 @@
     color: black;
     border-color: transparent;
     cursor: pointer;
-    background-color: rgb(97, 110, 71);
+    background-color: rgb(182, 96, 204);
 }
 
 .divFiltro {
     position: absolute;
-    left: 5rem;
+    left: 10%;
     top: 3px;
 }
 
@@ -44,14 +45,16 @@
 
 .divFuerza {
     position:absolute;
-    left: 15rem;
+    left: 25%;
     top: 3px;
 }
 
 
+
+
 .divFuente {
     position:absolute;
-    left: 30rem;
+    right: 25%;
     top: 3px;
 }
 
@@ -59,19 +62,22 @@
 
 .divTypes{
     position:absolute;
-    left: 43rem;
+    right: 10%;
     top: 3px;
 }
 
+
+
 .select{
     border: none !important;
-    background-color: transparent;
+    background: none;
     font-size:larger;
     font-family: 'Coming Soon', cursive;
     scrollbar-color: rgba(0,0,0,.5);
     scrollbar-width: thin;
     
 }
-.select option {
-    border: none !important;
+
+.select:hover {
+    cursor: pointer;
 }

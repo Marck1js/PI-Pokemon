@@ -5,6 +5,7 @@ import MainPage from './pages/MainPage';
 import DetailPage from './pages/DetailPage';
 import NavBar from './components/navBar/NavBar';
 import CreatePage from './pages/CreatePage';
+import SearchBar from './components/searchBar/SearchBar';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
             <Route path='/navbar' element={<NavBar/>}/>
             <Route path='/home/create' element={<CreatePage/>}/>
             <Route path='/home/:id' element={<DetailPage/>}/>
+            <Route path='/search' element={<SearchBar/> }/>
+           
 
       </Routes>
 
@@ -30,6 +33,3 @@ function App() {
 }
 
 export default App;
-
-//<Route path='/home/create' element={<CreatePokemon/>}/>
-//<Route path="/home/:id" element={<DetailPage/>}/> 

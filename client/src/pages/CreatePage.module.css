@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap');
+
+
 .contenedor {
     background-image: url('../img/create.jpg');
     background-attachment: fixed;
@@ -8,8 +11,133 @@
     width: 100vw;
     overflow: auto;
     display: inline-block;
+    position: relative;
+}
+
+.formulario {
+    display: inline-block;
+    background-color: rgba(111,225,102,.3);
+    backdrop-filter: blur(1px);
+    border-radius: 20px;
+    position: absolute;
+    padding-top: 30px;
+    width: 400px;
+    height: 350px;
+    right: 20%;
+    top: 25%;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.goHome {
+    display: inline-block;
+    position: absolute;
+    background-color: rgba(111,225,102,.2);
+    border-radius: 20px;
+    bottom: 30vh;
+    left: 8vw;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    cursor: pointer;
+   
+}
+.goHome:hover{
+    border: 2px solid white;
+}
+
+.btn {
+    color: green;
+    font-size: 50px;
+    background-color: transparent;
+    border-color: transparent;
+    -webkit-text-stroke: 1px white;
 }
 
 
+.add {
+    color: green;
+    -webkit-text-stroke: 1px black;
+    animation: chn 1s linear infinite;
+}
+
+.showTypes{
+    outline: 3px solid pink;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 4vw;
+    width: 250px;
+    background-color: rgba(117,193,120,.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.types{
+    font-size:40px;
+    color: black;
+    -webkit-text-stroke: 1px green;
+    margin-bottom: 10px;
+}
 
 
+@keyframes chn {
+    0%{
+        color: green;
+        -webkit-text-stroke: 1px black;
+    }
+    50%{
+        color: white;
+        -webkit-text-stroke: 1px green;
+    }
+    100%{
+        color: black;
+        -webkit-text-stroke: 1px white;
+    }
+}
+
+input{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    colo: black;
+    margin: 2px;
+}
+input::placeholder{
+    color: black;
+}
+
+
+.button{
+    font-size: 20px;
+    margin-top:5px;
+    margin-right: 3px;
+    margin-left: 3px;
+    background: none;
+    border: none;
+    font-family: 'Permanent Marker', cursive;
+}
+.button:hover {
+    cursor: pointer;
+    -webkit-text-stroke: 0.5px white;
+}
+
+
+label {
+    font-family: 'Permanent Marker', cursive;
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.813);
+}
+
+.select {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: darkolivegreen;
+}

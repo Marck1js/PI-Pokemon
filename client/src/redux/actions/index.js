@@ -1,4 +1,4 @@
-import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE, FILTER_BY_ORIGIN } from "../actiontypes"; 
+import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE, FILTER_BY_ORIGIN, POST_POKEMON } from "../actiontypes"; 
 
 
 
@@ -61,6 +61,36 @@ function apiGetPokemons () {
         }
     }
 
+    function postPokemon (value){
+      return async (dispatch) => {
+          await fetch(`http://localhost:3001/pokemons`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type' : 'application/json'
+              },
+              body: JSON.stringify(value)
+          }).then(e => e.json()).then(e => {
+              let s = {...e}
+              let d = {...value}
+              let tipo = [...value.types];
+              let mix = tipo.map(e=> ({name: e}));
+              d.types = mix
+              d.id = s.id
+              d.isDatabase = true
+              return d;
+          }).then(e => {
+              return dispatch(
+                  {
+                      type: POST_POKEMON,
+                      payload: e
+                  }
+              )
+          })
+       }
+    }
+
+
+
 
     function orderByName (value) {
         return {
@@ -116,7 +146,10 @@ function filterByOrigin (value) {
 }
 
 
+
+
 export {
+    postPokemon,
     filterByOrigin,
     filterByType,
     setPokename,

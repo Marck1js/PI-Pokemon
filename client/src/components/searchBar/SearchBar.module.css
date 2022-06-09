@@ -1,0 +1,48 @@
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+.buscar {
+    position: relative;
+    padding: 5px;
+  }
+  
+  .buscar input {
+    width: 0;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color:  rgba(159, 108, 191, 1);
+    outline: none;
+    background-color: rgba(46,196,220, 0.9);  
+    border: 1px solid rgba(46,196,220, 0.9);  
+    border-radius: 30px;
+    transition: all 0.6s ease;
+  }
+
+  .btn {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: rgba(46,196,220, 0.9);  
+    text-align: center;
+    color: rgb(177, 43, 166);
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+.buscar:hover input {
+    width: 200px;
+  }
+
+  

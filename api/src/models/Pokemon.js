@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
     },
     image:{
       type: DataTypes.STRING,
-      defaultValue: 'https://img.freepik.com/vector-gratis/error-404-ilustracion-concepto-paisaje_114360-7888.jpg?size=338&ext=jpg'
+      
     },
     isDatabase: {
       type: DataTypes.BOOLEAN,
