@@ -16,6 +16,19 @@ export function reducer (state=initialState, action) {
         case ACCIONES.API_DETAIL_POKEMON: return {...state, detailPokemon: action.payload};
         case ACCIONES.API_GET_TYPES: return {...state, types: action.payload};
      
+
+        case ACCIONES.SEARCH_BY_NAME: 
+        let datax = [{...action.payload}]
+            if(datax[0].msg){
+               let a = 'x'
+               return {...state, allPokemons: a} 
+            }else{
+                return {...state, allPokemons : datax};
+            }
+
+
+
+
         case ACCIONES.ORDER_BY_NAME: 
             let order = [...state.default];
             if(action.payload === 'asc'){
@@ -84,18 +97,19 @@ export function reducer (state=initialState, action) {
         }
         if(action.payload === 'api'){
             let nuevoapi = origen.filter(e => e.isDatabase !== true)
-            return {...state, allPokemons: nuevoapi}
+             return {...state, allPokemons: nuevoapi}
+            
         }
         if(action.payload === 'all'){
             return {...state, allPokemons: origen}
         };
+        
+        break;
         case ACCIONES.POST_POKEMON:
             let dasd = {...action.payload};
           let inf = [...state.default, dasd];
            return {...state, default: inf, allPokemons: inf};
 
-
-   
                 
 
         default : return state

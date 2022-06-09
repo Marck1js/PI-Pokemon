@@ -11,20 +11,6 @@ function CreatePage () {
 
     const types = useSelector((state)=> state.types);
 
-
-    const [validations, setValidations] = useState({
-        name:'',
-        life: '',
-        strength:'',
-        defense: '',
-        speed: '',
-        height: '',
-        weight: '',
-        image: '',
-        types: ''
-    });
-
-
     const [addDelete, setAddDelete] = useState('');
     
     const [state, setState] = useState({
@@ -108,7 +94,7 @@ useEffect(()=>{
         }else if(!state.types.includes(addDelete)){
             alert('No se puede eliminar porque no esta agregado')
         } else if(addDelete !== ''){
-            setState({...state, types: [...state.types], types: state.types.filter(f=> f !== addDelete)});
+            setState({...state, types: state.types.filter(f=> f !== addDelete)});
             setAddDelete('')
         }  
     } 

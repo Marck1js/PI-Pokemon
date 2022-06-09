@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom' 
-import { getIdPokemon, apiGetTypes, orderByName, orderByStrength, setPokename, filterByType, filterByOrigin } from "../../redux/actions"; 
+import { apiGetTypes, orderByName, orderByStrength, filterByType, filterByOrigin } from "../../redux/actions"; 
 import Estilos from './NavBar.module.css';
 
 export default function NavBar() {

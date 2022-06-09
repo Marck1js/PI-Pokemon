@@ -29,10 +29,10 @@
     background-color: transparent;
 }
 .btnCreate:hover {
-    color: black;
+    color: #56F2ED;
     border-color: transparent;
     cursor: pointer;
-    background-color: rgb(182, 96, 204);
+    background-color: black
 }
 
 .divFiltro {

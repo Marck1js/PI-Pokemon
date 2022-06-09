@@ -102,7 +102,7 @@ input{
     border: none;
     outline: none;
     font-size: 20px;
-    colo: black;
+    color: black;
     margin: 2px;
 }
 input::placeholder{

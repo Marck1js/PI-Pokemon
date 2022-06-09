@@ -1,4 +1,22 @@
-import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE, FILTER_BY_ORIGIN, POST_POKEMON } from "../actiontypes"; 
+import { SUMAR_DINERO, RESTAR_DINERO, API_GET_POKEMONS, API_DETAIL_POKEMON, API_GET_TYPES, GET_ID_POKEMON, ORDER_BY_NAME, ORDER_BY_STRENGTH, SET_DETAIL, SET_POKENAME, FILTER_BY_TYPE, FILTER_BY_ORIGIN, POST_POKEMON, SEARCH_BY_NAME } from "../actiontypes"; 
+
+
+
+
+function seachByName (value) {
+    return async (dispatch) => {
+        await fetch(`http://localhost:3001/pokemons?name=${value}`)
+        .then(res => res.json())
+        .then(resultado => {
+            return dispatch(
+                {
+                    type: SEARCH_BY_NAME,
+                    payload: resultado
+                }
+            )
+        })
+    }
+}
 
 
 
@@ -149,6 +167,7 @@ function filterByOrigin (value) {
 
 
 export {
+    seachByName,
     postPokemon,
     filterByOrigin,
     filterByType,
