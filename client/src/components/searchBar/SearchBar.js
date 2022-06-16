@@ -12,8 +12,9 @@ export default function SearchBar () {
     // HOOKS --!
 
     const handleClick = () =>{
+     
         if(state === ''){
-           console.log('Por favor escriba algo')
+           alert('Por favor escriba algo')
         }else {
            dispatch(seachByName(state));
 
@@ -37,10 +38,10 @@ export default function SearchBar () {
        <div className={Estilos.buscar}>
            <input type='text' value={state} onChange={(e)=> handleSearch(e)}/>
 
-          <div onClick={()=>handleClick()} className={Estilos.btn}>
+          <button type="submit" onClick={()=>handleClick()} className={Estilos.btn}>
             <img src={lupa} alt='lupa'/>
 
-        </div>
+        </button>
         </div>
         </div>
        

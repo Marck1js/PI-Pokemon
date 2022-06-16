@@ -2,7 +2,7 @@
 
 
 .contenedor {
-    background-image: url('../img/create.jpg');
+    background-image: url('../img//create.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center center;
@@ -14,20 +14,47 @@
     position: relative;
 }
 
-.formulario {
+.formulario{
     display: inline-block;
     background-color: rgba(111,225,102,.3);
     backdrop-filter: blur(1px);
     border-radius: 20px;
     position: absolute;
     padding-top: 30px;
-    width: 400px;
-    height: 350px;
+    margin-top: 10vh;
+    width: 20vw;
+    margin-right: 25vw;
+    height: 500px;
     right: 20%;
-    top: 25%;
+    top: 25px;
     text-align: center;
     border: 2px solid black;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 60px;
 }
+
+.showErrors {
+    
+    display: inline-block;
+    background-color: rgba(111,225,102,.3);
+    backdrop-filter: blur(1px);
+    border-radius: 20px;
+    position: absolute;
+    padding-top: 30px;
+    margin-top: 10vh;
+    width: 30vw;
+  
+    height: 600px;
+    right: 100px;
+    top: 25px;
+    text-align: center;
+    border: 2px solid black;
+
+}
+
+
 
 .goHome {
     display: inline-block;
@@ -43,6 +70,7 @@
     cursor: pointer;
    
 }
+
 .goHome:hover{
     border: 2px solid white;
 }
@@ -54,7 +82,6 @@
     border-color: transparent;
     -webkit-text-stroke: 1px white;
 }
-
 
 .add {
     color: green;
@@ -73,14 +100,6 @@
     backdrop-filter: blur(10px);
     text-align: center;
 }
-
-.types{
-    font-size:40px;
-    color: black;
-    -webkit-text-stroke: 1px green;
-    margin-bottom: 10px;
-}
-
 
 @keyframes chn {
     0%{
@@ -142,3 +161,18 @@ label {
     background-color: darkolivegreen;
 }
 
+.invisible {
+    color: transparent
+}
+
+.types{
+    font-size:40px;
+    color: black;
+    -webkit-text-stroke: 1px green;
+    margin-bottom: 10px;
+}
+
+
+.p {
+    font-size: 30px
+}

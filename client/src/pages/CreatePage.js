@@ -180,6 +180,8 @@ useEffect(()=>{
                     <button className={Estilos.button} >CREAR POKEMON !</button>
                     
                 </form>
+
+                
                 </div>
 
                 <div className={Estilos.goHome}>

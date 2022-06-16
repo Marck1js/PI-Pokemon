@@ -8,7 +8,7 @@ export default  function CardDetail ({name,image,type,id,life,strength,defense,s
            <h1 className={Estilos.name}>{name}</h1>
           <div className={Estilos.divImagen}><img className={Estilos.image} src={image} width='100px' height='100px' alt="pokemon"/></div> 
            <div className={Estilos.divType}>{type.map(e => <h1 className={Estilos.type} key={e}>Tipo: {e}</h1>)}</div>
-           <h1 className={Estilos.id}>ruta: detail</h1>
+           <h1 className={Estilos.id}>Pokemon</h1>
            <div className={Estilos.stats}><h1 className={Estilos.life}>vida: {life}</h1>
            <h1 className={Estilos.strength}>fuerza: {strength}</h1>
            <h1 className={Estilos.defense}>defensa: {defense}</h1>

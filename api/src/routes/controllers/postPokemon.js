@@ -4,8 +4,8 @@ async function postPokemon (req,res){
      let {name, life, strength, defense, speed, height, weight, types, image}  = req.body;
 
      try {
-       
-   
+
+     name = name.toLowerCase();
     
      const savePokemon = await Pokemon.create({name, life, strength, defense, speed, height, weight, image});   
      const findPokemon = await Pokemon.findAll({where: {name: name}, attributes: ['id']});
