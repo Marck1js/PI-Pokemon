@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Estilos from './SearchBar.module.css';
-import lupa from '../../img/search.svg';
-import {useDispatch} from 'react-redux';
+import Search from '../../img/search.jsx';
+import { useDispatch } from 'react-redux';
 import { seachByName } from "../../redux/actions";
-export default function SearchBar () {
+export default function SearchBar() {
 
     // HOOKS
     const [state, setState] = useState('')
@@ -11,15 +11,15 @@ export default function SearchBar () {
 
     // HOOKS --!
 
-    const handleClick = () =>{
-     
-        if(state === ''){
-           alert('Por favor escriba algo')
-        }else {
-           dispatch(seachByName(state));
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (state === '') {
+            alert('Por favor escriba algo')
+        } else {
+            dispatch(seachByName(state));
 
-           setState('')
-        }          
+            setState('')
+        }
     }
 
     const handleSearch = (e) => {
@@ -31,20 +31,15 @@ export default function SearchBar () {
 
 
     return (
-    
 
-        <div className={Estilos.body}>
+            <form  onSubmit={(e) => handleClick(e)} className={Estilos.buscar}>
+                <div className={Estilos.input} onSubmit={(e) => handleClick(e)}>
+                    <input type='text' value={state} onChange={(e) => handleSearch(e)} placeholder='busca pokemon'/>
+                </div>
 
-       <div className={Estilos.buscar}>
-           <input type='text' value={state} onChange={(e)=> handleSearch(e)}/>
-
-          <button type="submit" onClick={()=>handleClick()} className={Estilos.btn}>
-            <img src={lupa} alt='lupa'/>
-
-        </button>
-        </div>
-        </div>
-       
-    )
-
+                <button  type="submit" className={Estilos.btn}>
+                    <Search />
+                </button>
+            </form>
+        )
 }

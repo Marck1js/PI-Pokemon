@@ -43,23 +43,21 @@ export default function MainPage ()  {
            
             <NavBar/>
            
+           <div className={Estilos.searchPage}>
             <SearchBar/>
-
-        
-           
-
             <Paginado pokemonesPorPagina={pokemonesPorPagina} pokemons={pokemons.length} paginado={paginado}/>
+           </div>
 
          
-
-            <ul className={Estilos.cards}>
+          
+            <div className={Estilos.cards}>
             {
-            pokemons === 'x' ? <div className={Estilos.notfound}><h1>no</h1><h1>hay</h1><h1>pokemones</h1><h1>con</h1><h1>esa</h1><h1>caracteristica</h1><h1>;(</h1></div>:   pokemonesActual.map(e=> {
+            pokemons === 'x' ? <div className={Estilos.notfound}><p>no</p><p>hay</p><p>pokemones</p><p>con</p><p>esa</p><p>caracteristica</p><p>;(</p></div>:   pokemonesActual.map(e=> {
                    return ( <Card key={e.name} name={e.name} image={e.image} types={e.types} id={e.id}/>)
                 }) 
             } 
-            </ul>
-
+         </div>
+            
             
 
 

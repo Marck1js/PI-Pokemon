@@ -1,55 +1,54 @@
-
-.body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-}
-
-
 .buscar {
-    position: relative;
-    padding: 5px;
-  }
-  
-  .buscar input {
-    width: 0;
-    height: 40px;
-    padding: 0 20px;
-    font-size: 18px;
-    color:  rgba(159, 108, 191, 1);
-    outline: none;
-    background-color: rgba(46,196,220, 0.9);  
-    border: 1px solid rgba(46,196,220, 0.9);  
-    border-radius: 30px;
-    transition: all 0.6s ease;
-  }
-
-  .btn {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-    top: 0;
-    right: 0;
-    position: absolute;
-    background: rgba(46,196,220, 0.9);  
-    text-align: center;
-    color: rgb(177, 43, 166);
-    font-size: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-
-.buscar:hover input {
-    width: 200px;
-  }
-
-.super {
-  position: absolute;
-  background: none;
-  border: none;
-  outline: none;
-  width: 0px;
-  height: 0px;
+  background-color: rgb(158, 227, 227);
+  overflow: hidden;
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: max-content;
 }
+
+.btn {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  border: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.input {
+  height: 4.5rem;
+  width: 20rem;
+  padding-right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input input {
+  width: 100%;
+  height: 3rem;
+  border: none;
+  background-color: inherit;
+  border: 1px solid black;
+  color: rgb(28, 28, 28);
+  padding-left: .4rem;
+}
+
+.input input::placeholder {
+  color: rgb(82, 82, 82); 
+  text-transform: capitalize;
+  letter-spacing: 1px;
+ 
+}
+
+.input input:focus {
+  outline: none;
+}
+
