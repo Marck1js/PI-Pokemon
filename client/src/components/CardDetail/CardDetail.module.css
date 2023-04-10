@@ -1,5 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100rem;
+    height: 40rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.name {
+    animation: name 1s ease infinite;
+}
+
+.start {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start p {
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    font-size: 38px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.middle {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.divImagen{
+    width: 30rem;
+    height: 30rem;
+    filter: drop-shadow(0px 0px 0px rgb(158, 227, 227));
+}
+
+.divImagen :hover{
+    transition: filter 250ms ease-in-out ;
+    filter: drop-shadow(5px 5px 30px rgb(158, 227, 227));
+}
+
+.divImagen img {
+    width: 100%;
+    height: 100%;
+    animation: agrandar 1s linear infinite;
+}
+
+.divType {
+    font-size: 4rem;
+}
+.divType p {
+    margin: 1rem 0;
+    color: azure;
+    text-transform: uppercase;
+    text-align: start;
+    font-weight: bold;
+    letter-spacing: .2rem;
+}
+
+.divType p::first-letter {
+    font-size: 4rem;
+}
+
+
+.stats {
+    margin-right: 1rem;
+}
+
+.stats p {
+    color: azure;
+    text-transform: uppercase;
+    text-align: end;
+    font-family: 'Verdana';
+    font-size: 4rem;
+    margin: .5rem 0;
+}
+
+
+p {
+    user-select: none;
+}
+
+/* 
 .contenedor {
    display: inline-block;
    position: relative;
@@ -15,14 +109,7 @@
    text-transform: uppercase;
 }
 
-.divImagen{
-    display: inline-block;
-    position: absolute;    
-    top: 7rem;
-    left: 80px;
-    align-items: center;
-    
-}
+
 
 .image{
     width: 395px;
@@ -42,22 +129,10 @@
     top: 0;
     left: 1rem;
     position: absolute;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
-@keyframes name {
-    0%{
-        -webkit-text-stroke: 2px rgb(70, 66, 56);
-    }
 
-    50%{
-        -webkit-text-stroke: 2px rgba(17, 166, 224, 0.726);
-    }
-
-    100%{
-        -webkit-text-stroke: 2px rgba(230, 192, 24, 0.87);
-    }
-}
 
 .stats{
     font-family: 'Permanent Marker', cursive;
@@ -86,43 +161,47 @@
     margin-top: 200px;
     left: 33vw;
    
-}
+}   */
 
-@keyframes chs {
-    0%{
-        color:rgba(212, 223, 67, 0.795);
-    }
-    50%{
-        color:rgba(59, 201, 31, 0.795);
-    }
-    100%{
-        color:rgba(0, 59, 253, 0.795);
-    }
-  
-    
-}
 
-@keyframes img {
+
+/* KeyFrames */
+
+
+@keyframes agrandar {
     0% {
-            width: 395px;
-            height: 395px;
+        transform: scale(1.2);
         
     }
     25%{
-        width: 397px;
-        height: 397px;
+        transform: scale(1.1);
+   
     }
 
     50%{
-        width: 400px;
-        height: 400px;
+        transform: scale(1.3);
+   
     }
     50%{
-        width: 397px;
-        height: 397px;
+        transform: scale(1.1);
+     
     }
     100%{
-        width: 395px;
-        height: 395px;
+        transform: scale(1.2);
+ 
+    }
+}
+
+@keyframes name {
+    0%{
+        -webkit-text-stroke: 2px rgb(70, 66, 56);
+    }
+
+    50%{
+        -webkit-text-stroke: 2px rgba(17, 166, 224, 0.726);
+    }
+
+    100%{
+        -webkit-text-stroke: 2px rgba(230, 192, 24, 0.87);
     }
 }

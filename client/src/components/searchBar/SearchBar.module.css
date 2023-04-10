@@ -17,7 +17,7 @@
   border: none;
 }
 
-.btn:hover {
+.btn:hover > :first-child {
   cursor: pointer;
   transform: scale(1.1);
 }

@@ -6,13 +6,17 @@
     background-size: cover;
     height: 100vh;
     overflow: auto;      
-    
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 50vw;
+
+.cont {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 2rem;
 }
 
 .boton {
