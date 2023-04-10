@@ -5,6 +5,7 @@
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
+    justify-content: start;
     align-items: center;
     background-image: url('../../img/landing.jpg');
     background-color: #cccccc;

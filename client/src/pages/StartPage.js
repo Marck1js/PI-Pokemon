@@ -14,9 +14,7 @@ export default function StartPage () {
    
     return (
         <div className={Estilos.start}>
-                <h1 className={Estilos.letra} onClick={goMenu}>PRESS START</h1>
-
-
+                <p className={Estilos.letra} onClick={goMenu}>PRESS START</p>
         </div>
     )
 }
