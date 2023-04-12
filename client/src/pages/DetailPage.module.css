@@ -2,7 +2,7 @@
 
 
 .contenedor {
-    background: url('../img//detail.jpg') no-repeat center center fixed;
+    background: url('../img/detail.webp') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     overflow: auto;      
